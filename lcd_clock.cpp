@@ -55,7 +55,7 @@ void LCD_init(void)
 }
 
 // 문자열 출력 함수
-void LCD_String(char flash str[])
+void LCD_String(char flash *str)
 {
 	char flash  *pStr=0;
 	pStr = str;	
