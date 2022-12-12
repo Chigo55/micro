@@ -1,6 +1,7 @@
 #include <mega128.h>
 
 unsigned char led = 0xfe;
+unsigned char count = 0;
 
 void main(void)
 {
@@ -16,9 +17,15 @@ void main(void)
 
 interrupt [TIM0_COMP] timer0_comp(void)
 {
-    led <<= 1;
-    led |= 1;
-
-    if (led == 0xff;) led = 0x01;
-    PORTC = led;
+    count++;
+    if ( count == 250)
+    {
+        led <<= 1;
+        led |= 0x01;
+        
+        if (led == 0xff;) led = 0xfe;
+        PORTC = led;    
+        count = 0;
+    }
+    
 }
