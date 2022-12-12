@@ -25,6 +25,7 @@ void main(void)
         AD_display(ad_val);
         delay_ms(2);        
     }
+    
 }
 
 void AD_display(int val)

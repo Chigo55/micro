@@ -34,6 +34,7 @@ interrupt [TIM0_OVF] void timer_int0(void)
         count = 0;
         sec++;
     }
+
 }
 
 void timer_out(void)
@@ -45,5 +46,4 @@ void timer_out(void)
     PORTB = seg_part[s1];
     PORTC = led[s10];
     if (sec == 90) sec = 0;
-
 }

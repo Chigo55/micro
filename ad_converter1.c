@@ -24,6 +24,7 @@ void main(void)
         ad_val = (int)ADCL + ((int)ADCH << 8);
         AD_display(ad_val);        
     }
+    
 }
 
 void AD_display(int val)

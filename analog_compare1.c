@@ -24,7 +24,9 @@
             PORTC = led;
             delay(5);
         }
+
     }
+    
  }
 
  void delay(unsigned int cnt)

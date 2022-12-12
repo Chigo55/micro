@@ -45,7 +45,6 @@ void main(void)
         if (catch == 1) break;
         else if (distance >= 300) break;   
     }
-
     fnd_display();
 }
 
@@ -83,6 +82,7 @@ void fnd_display(void)
 
         PORTF = 0xf0;
     }
+    
 }
 
 interrupt [EXT_INT1] void external_int1(void)

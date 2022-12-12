@@ -30,6 +30,23 @@ void main(void)
                 delay_ms(100);
             }
         }
-        PORTC = PORTC 
+        PORTC = PORTC ^ 0xff;
+        delay_ms(500);
     }
+    
+}
+
+interrupt [EXT_INT4] void ext_int4(void)
+{
+    if (motor_mod == 0)
+    {
+        CW_CCW = CCW;
+        motor_mod = 1;
+    }
+    else
+    {
+        CW_CCW = CW;
+        motor_mod = 0;
+    }
+    
 }
