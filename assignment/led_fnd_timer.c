@@ -33,6 +33,7 @@ interrupt [TIM0_OVF] void timer_int0(void)
     {
         count = 0;
         sec++;
+        timer_out();
     }
 
 }

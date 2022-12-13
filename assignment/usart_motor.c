@@ -1,8 +1,8 @@
 #include <mega128.h>
 #include <delay.h>
 
-unsigned char CW[4] = {0x09, 0x05, 0x06, 0x0a};
-unsigned char m, n, i;
+unsigned char CW[4] = {0xfc, 0xf0, 0xc0, 0x00};
+unsigned char i;
 
 char rx;
 
@@ -16,7 +16,6 @@ void main(void)
     UBRR0L = 103;
     SREG = 0x80;
 
-    DDRA = 0xff;
     DDRC = 0xff;
     PORTC = 0xff;
 }
@@ -31,10 +30,9 @@ interrupt [USART0_RXC] usart_rx(void)
         {
             for (i = 0; i < 4; i++)
             {
-                PORTA = *(CW + i);
-                delay_ms(30);
+                PORTC = *(CW + i);
+                delay_ms(50);
             }
-            PORTC = PORTC ^ 0xff;
             delay_ms(50);
         }
         delay_ms(50);
@@ -47,9 +45,8 @@ interrupt [USART0_RXC] usart_rx(void)
             for (i = 0; i < 4; i++)
             {
                 PORTA = *(CW + (3 - i));
-                delay_ms(30);
+                delay_ms(50);
             }
-            PORTC = PORTC ^ 0xff;
             delay_ms(50);
         }
         delay_ms(50);
