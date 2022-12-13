@@ -26,7 +26,7 @@ void main(void)
 interrupt [EXT_INT4] void int4(void)
 {
     // led를 1bit씩 shift
-    led << = 1;
+    led <<= 1;
     // lsb를 처음 이외에는 계속 off
     led |= 0x01;
 
