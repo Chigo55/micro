@@ -56,8 +56,8 @@ void AD_display(int val)
     ival = (int)(fval * 100.0 + 0.5);
 
     // 정수부 자리 추출
-    n100 = buf / 100;
-    buf = buf % 100;
+    n100 = ival / 100;
+    buf = ival % 100;
 
     // 소수점 첫째 자리 추출
     n10 = buf / 10;

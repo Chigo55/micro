@@ -31,7 +31,7 @@
 
  void delay(unsigned int cnt)
  {
-    unsigned in i, j;
+    unsigned int i, j;
 
     for ( i = 0; i < cnt; i++)
     {

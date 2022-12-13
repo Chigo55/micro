@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #asm
-    .equ_lcd_port = 0x12;
+    .equ __lcd_port = 0x12 ;PORTD
 #endasm
 
 #include <lcd.h>
@@ -30,13 +30,13 @@ void main(void)
     ADCSRA = 0x86;
     SFIOR &= 0xef;
 
-    lcd_init;
+    lcd_init(16);
 
     while (1)
     {
         lcd_clear();
         lcd_gotoxy(0, 0);
-        lcd_puts("LM35 Temperature")
+        lcd_puts("LM35 Temperature");
 
         adc_val = read_adc(0);
 

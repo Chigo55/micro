@@ -4,7 +4,7 @@
 
 // LCD 사용을 위한 어샘블러 LCD 포트 선언
 #asm
-    .equ_lcd_port = 0x12;
+    .equ __lcd_port = 0x12 ;PORTD
 #endasm
 
 #include <lcd.h>
@@ -54,14 +54,14 @@ void main(void)
 }
 
 // 차동 변환 값 표시 함수
-void diff_ad_display(int val);
+void diff_ad_display(int val)
 {
     // 필요한 변수 정의
     float fval;
     int ival, buf;
     char n100, n10, n1, flag = 0;
     // 기본 부호를 +로 저장
-    char sign = "+"
+    char sign = '+';
 
     // 아날로그 입력값이 512 이상의 경우
     if (val > 512)
@@ -70,7 +70,7 @@ void diff_ad_display(int val);
         fval = (float)(1024 - val);
         // 부호를 음수로 판단
         flag = 1;
-        sign = "-"
+        sign = '-';
     }
     // 아날로그 입력값이 512 이하의 경우
     else fval = (float)val;

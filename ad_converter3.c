@@ -45,7 +45,7 @@ void main(void)
 }
 
 // 차동 변환 값 표시 함수
-void diff_ad_display(int val);
+void diff_ad_display(int val)
 {
     // 필요한 변수 정의
     float fval;
@@ -98,7 +98,7 @@ void diff_ad_display(int val);
         // 부호부 자리 표시
         PORTF = 0x70;
         PORTB = seg_part[16];
-        delay_ms(1)
+        delay_ms(1);
     }
     
 }
