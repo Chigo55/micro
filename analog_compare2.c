@@ -3,7 +3,7 @@
 
 char seg[10] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};
 
-void main(void);
+void main(void)
 {
     char led = 0xfe;
 
@@ -21,18 +21,18 @@ void main(void);
 
     while (1)
     {
-        for (i = 0; i < count; i++)
+        for (i = 0; i < 100; i++)
         {
             PORTF = 0xd0;
-            PORTB = seg[s10]
+            PORTB = seg[s10];
             delay_ms(5);
 
             PORTF = 0xe0;
-            PORTB = seg[s1]
+            PORTB = seg[s1];
             delay_ms(5);
         }
 
-        if (ACSR = 0x20)
+        if (ACSR & 0x20)
         {
             s1++;
             if (s1 == 10) s1 = 0,s10++;
@@ -44,7 +44,6 @@ void main(void);
             if (led == 0xff) led = 0xfe;
             PORTC = led;
         }
-        
         
     }
 
