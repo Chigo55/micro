@@ -1,12 +1,15 @@
-include <mega128.h>
+#include <mega128.h>
 #include <delay.h>
 #include <stdio.h>
+
 #asm
     .equ_lcd_port = 0x12;
 #endasm
+
 #include <lcd.h>
 
 #define ADC_VREF_TYPE 0x03
+
 unsigned int read_adc(unsigned char adc_input)
 {
     ADMUX = adc_input|ADC_VREF_TYPE;
