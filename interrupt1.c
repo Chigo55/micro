@@ -1,4 +1,5 @@
 #include <mega128.h>
+#include <delay.h>
 
 // led 초기값-> 맨 왼쪽 led on
 unsigned char led = 0b11111110; 
@@ -34,4 +35,5 @@ interrupt [EXT_INT4] void int4(void)
     if(led == 0xff) led = 0x01;
     // led를 PORTC로 출력
     PORTC = led;
+    delay_ms(100);
 }

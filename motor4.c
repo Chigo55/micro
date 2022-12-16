@@ -1,8 +1,8 @@
 #include <mega128.h>
 #include <delay.h>
 
-unsigned char CW[4] = {0x01, 0x04, 0x02, 0x08};
-unsigned char CCW[4] = {0x08, 0x02, 0x04, 0x01};
+unsigned char CW[4] = {0x09, 0x05, 0x06, 0x0a};
+unsigned char CCW[4] = {0x0a, 0x06, 0x05, 0x09};
 char motor_mod;
 
 unsigned char *CW_CCW;
@@ -26,7 +26,7 @@ void main(void)
         {
             for (i = 0; i < 4; i++)
             {
-                PORTA = *(CW_CCW + i);
+                PORTA = *(CW_CCW + i)
                 delay_ms(100);
             }
         }

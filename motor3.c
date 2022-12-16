@@ -1,7 +1,7 @@
 #include <mega128.h>
 #include <delay.h>
 
-unsigned char CW[4] = {0x01, 0x04, 0x02, 0x08};
+unsigned char CW[4] = {0x09, 0x05, 0x06, 0x0a};
 unsigned char i, n = 0;
 
 void main(void)

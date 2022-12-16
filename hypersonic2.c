@@ -4,9 +4,10 @@
 #define TRIGGER PORTD.0
 
 int distance, catch;
-void fnd_display(void);
+int fnd_display(void);
 
 char seg_part[10] = {0x3f, 0x06, 0x5b, 04f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};
+char led[8] = {0xfe, 0xfd, 0xfb, 0xf7, 0xef, 0xdf, 0xbf, 0x7f}
 
 void main(void)
 {
@@ -15,6 +16,8 @@ void main(void)
     DDRB = 0xff;
     DDRF = 0xf0;
     DDRD = 0x01;
+    DDRC = 0xff;
+    PORTC = 0xff;
 
     TRIGGER = 0;
 
@@ -45,11 +48,37 @@ void main(void)
             else if (distance >= 300) break;   
         }
         fnd_display();
+
+        if (n10 == 0 || n10 == 1 || n10 == 2)
+        {
+            PORTC = led[0]:
+            delay_ms(20);
+            PORTC = 0xff;
+        }
+        else if (n10 == 3 || n10 == 4)
+        {
+            PORTC = led[1];
+            delay_ms(20);
+            PORTC = 0xff
+        }
+        else if (n10 == 5 || n10 == 6)
+        {
+            PORTC = led[2];
+            delay_ms(20);
+            PORTC = 0xff;
+        }
+        else if (n10 == 7 || n10 == 8)
+        {
+            PORTC = led[3];
+            delay_ms(20);
+            PORTC = 0xff;
+        }
+        
     }
     
 }
 
-void fnd_display(void)
+int fnd_display(void)
 {
     int i, n1000, n100, n10, n1, buf = 0;
 
@@ -82,7 +111,7 @@ void fnd_display(void)
         delay_us(500);
         PORTF = 0xf0;
     }
-    
+    return n10;
 }
 
 interrupt [EXT_INT1] void external_int1(void)
