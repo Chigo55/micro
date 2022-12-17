@@ -30,7 +30,7 @@ interrupt [USART0_RXC] usart_rx(void)
         {
             for (i = 0; i < 4; i++)
             {
-                PORTC = *(CW + i);
+                PORTC = CW[i];
                 delay_ms(50);
             }
             delay_ms(50);
@@ -44,7 +44,7 @@ interrupt [USART0_RXC] usart_rx(void)
         {
             for (i = 0; i < 4; i++)
             {
-                PORTA = *(CW + (3 - i));
+                PORTA = CW[3-i];
                 delay_ms(50);
             }
             delay_ms(50);
